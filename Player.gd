@@ -60,7 +60,7 @@ func _physics_process(delta):
 		tilemap.set_cell(0, pos, 0, CHECKPOINT_USED)
 		Ingame.checkpoint_pos = position
 		Ingame.checkpoints.append(pos)
-	if tile_behind == CHECKPOINT:
+	if tile_behind == CHECKPOINT and not tile in killing:
 		tilemap.set_cell(0, on_player, 0, CHECKPOINT_USED)
 		Ingame.checkpoint_pos = position
 		Ingame.checkpoints.append(on_player)
@@ -76,6 +76,9 @@ func _physics_process(delta):
 		Ingame.level += 1
 		Ingame.checkpoints.clear()
 		if Ingame.level < LEVELS.size():
+			Ingame.checkpoint_pos = Vector2(320, 240)
+			Ingame.checkpoints.clear()
+			
 			get_tree().change_scene_to_file("res://main.tscn")
 		else:
 			get_tree().change_scene_to_file("res://game_end.tscn")

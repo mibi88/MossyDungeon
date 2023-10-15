@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dudcsrmi1xm3o"]
+[gd_scene load_steps=9 format=3 uid="uid://dudcsrmi1xm3o"]
 
 [ext_resource type="Texture2D" uid="uid://cv521wdxyw4dj" path="res://assets/left.png" id="1_j5hmj"]
 [ext_resource type="Texture2D" uid="uid://c3a8j3mai2326" path="res://assets/right.png" id="2_qgava"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://FPS.gd" id="4_6mnfy"]
 [ext_resource type="Script" path="res://Deaths.gd" id="5_g36uu"]
 [ext_resource type="Script" path="res://Level_num.gd" id="6_l1bfk"]
+[ext_resource type="Script" path="res://Main_menu2.gd" id="7_g8pon"]
 
 [sub_resource type="Theme" id="Theme_a48dr"]
 
@@ -38,8 +39,9 @@ visibility_mode = 1
 
 [node name="FPS" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 96.0
+offset_right = 136.0
+offset_bottom = 26.0
 theme = SubResource("Theme_a48dr")
 text = "FPS: "
 script = ExtResource("4_6mnfy")
@@ -67,3 +69,12 @@ grow_horizontal = 2
 text = "Level: "
 horizontal_alignment = 1
 script = ExtResource("6_l1bfk")
+
+[node name="Main menu" type="Button" parent="."]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 31.0
+text = "Main menu"
+script = ExtResource("7_g8pon")
+
+[connection signal="pressed" from="Main menu" to="Main menu" method="_on_pressed"]
