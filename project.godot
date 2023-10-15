@@ -28,10 +28,6 @@ window/size/viewport_height=480
 window/size/mode=2
 window/stretch/mode="viewport"
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
 [rendering]
 
 renderer/rendering_method="mobile"
