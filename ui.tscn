@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dudcsrmi1xm3o"]
+
+[ext_resource type="Texture2D" uid="uid://cv521wdxyw4dj" path="res://assets/left.png" id="1_j5hmj"]
+[ext_resource type="Texture2D" uid="uid://c3a8j3mai2326" path="res://assets/right.png" id="2_qgava"]
+[ext_resource type="Texture2D" uid="uid://ctfhh2seub0qi" path="res://assets/accept.png" id="3_pydew"]
+[ext_resource type="Script" path="res://FPS.gd" id="4_6mnfy"]
+[ext_resource type="Script" path="res://Deaths.gd" id="5_g36uu"]
+[ext_resource type="Script" path="res://Level_num.gd" id="6_l1bfk"]
+
+[sub_resource type="Theme" id="Theme_a48dr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.65
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(-17, 250)
+texture_normal = ExtResource("1_j5hmj")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(361, 237)
+texture_normal = ExtResource("2_qgava")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(163, -14)
+texture_normal = ExtResource("3_pydew")
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="FPS" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_a48dr")
+text = "FPS: "
+script = ExtResource("4_6mnfy")
+
+[node name="Deaths" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Deaths: "
+script = ExtResource("5_g36uu")
+
+[node name="Level_num" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Level: "
+horizontal_alignment = 1
+script = ExtResource("6_l1bfk")

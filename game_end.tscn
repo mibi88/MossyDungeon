@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwvt448k371to"]
+
+[ext_resource type="Script" path="res://Main_menu.gd" id="1_argq4"]
+[ext_resource type="Script" path="res://Time_end.gd" id="1_oivbw"]
+[ext_resource type="Script" path="res://Levels.gd" id="1_vxo4p"]
+[ext_resource type="Script" path="res://Deaths_end.gd" id="1_x55vi"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main menu"
+script = ExtResource("1_argq4")
+
+[node name="Levels" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Levels: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_vxo4p")
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 51.0
+grow_horizontal = 2
+text = "Time: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_oivbw")
+
+[node name="Deaths" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "Deaths: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_x55vi")
+
+[connection signal="pressed" from="Main menu" to="Main menu" method="_on_pressed"]

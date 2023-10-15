@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh37k1lyqw7b3"]
+
+[ext_resource type="Texture2D" uid="uid://c5vn1xjyq22nq" path="res://assets/player.png" id="1_jok8e"]
+[ext_resource type="Script" path="res://Player.gd" id="2_0gkun"]
+[ext_resource type="Texture2D" uid="uid://cs1eyjwhuuh2w" path="res://assets/light.png" id="4_hhb3j"]
+[ext_resource type="PackedScene" uid="uid://dudcsrmi1xm3o" path="res://ui.tscn" id="4_ldw6u"]
+[ext_resource type="Texture2D" uid="uid://c3f0wgb4qy51v" path="res://assets/background.png" id="6_eub7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j63sx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y5ela"]
+light_mode = 1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer2" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer2"]
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(640, 417)
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer2/ParallaxLayer"]
+texture = ExtResource("6_eub7j")
+centered = false
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(320, 240)
+safe_margin = 0.001
+script = ExtResource("2_0gkun")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+range_layer_min = -1
+shadow_enabled = true
+texture = ExtResource("4_hhb3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(3.15, 3.15)
+shape = SubResource("RectangleShape2D_j63sx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+material = SubResource("CanvasItemMaterial_y5ela")
+texture = ExtResource("1_jok8e")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_ldw6u")]
