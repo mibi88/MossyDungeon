@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 
 const SPEED = 600.0
@@ -31,6 +31,18 @@ func _ready():
 const BREAKING_SPEED = 0.5
 const ANIM_AMOUNT = 4
 
+func die():
+	var explosion = load("res://death.tscn").instantiate()
+	add_child(explosion)
+	get_node("Sprite2D").visible = false
+	await get_tree().create_timer(1).timeout
+	remove_child(explosion)
+	Ingame.deaths += 1
+	get_tree().change_scene_to_file("res://main.tscn")
+
+func jump():
+	velocity.y = JUMP_VELOCITY
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -38,7 +50,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -65,13 +77,7 @@ func _physics_process(delta):
 		Ingame.checkpoint_pos = position
 		Ingame.checkpoints.append(on_player)
 	if tile in killing or tile_behind in killing:
-		var explosion = load("res://death.tscn").instantiate()
-		add_child(explosion)
-		get_node("Sprite2D").visible = false
-		await get_tree().create_timer(1).timeout
-		remove_child(explosion)
-		Ingame.deaths += 1
-		get_tree().change_scene_to_file("res://main.tscn")
+		die()
 	if tile_behind == DOOR:
 		Ingame.level += 1
 		Ingame.checkpoints.clear()

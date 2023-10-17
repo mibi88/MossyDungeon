@@ -28,6 +28,7 @@ centered = false
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(320, 240)
+collision_layer = 3
 safe_margin = 0.001
 script = ExtResource("2_0gkun")
 
