@@ -22,7 +22,7 @@ var LEVELS = ["res://level1.tscn", "res://level2.tscn"]
 
 func _ready():
 	tilemap = load(LEVELS[Ingame.level]).instantiate()
-	get_parent().get_node("Level").add_child(tilemap)
+	$"../Level".add_child(tilemap)
 	tile_times.clear()
 	position = Ingame.checkpoint_pos
 	for checkpoint in Ingame.checkpoints:
@@ -34,7 +34,8 @@ const ANIM_AMOUNT = 4
 func die():
 	var explosion = load("res://death.tscn").instantiate()
 	add_child(explosion)
-	get_node("Sprite2D").visible = false
+	$Sprite2D.visible = false
+	$PointLight2D.visible = false
 	await get_tree().create_timer(1).timeout
 	remove_child(explosion)
 	Ingame.deaths += 1
