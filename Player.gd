@@ -11,7 +11,7 @@ var tilemap
 
 var tile_times = {}
 
-var killing = [Vector2i(2, 1)]
+var killing = [Vector2i(2, 1), Vector2i(0, 3)]
 const CHECKPOINT = Vector2i(1, 2)
 const CHECKPOINT_USED = Vector2i(2, 2)
 const DOOR = Vector2i(1, 1)

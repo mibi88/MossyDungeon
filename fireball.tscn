@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://r6kje1sxuu5e"]
+
+[ext_resource type="Script" path="res://Fireball.gd" id="1_6vjhq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1iwgg"]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_sphere_radius = 8.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 76.8, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 8.0
+color = Color(1, 0.501961, 0, 1)
+hue_variation_max = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tohvd"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r81j"]
+size = Vector2(12, 12)
+
+[node name="Fireball" type="CharacterBody2D"]
+safe_margin = 0.001
+script = ExtResource("1_6vjhq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+y_sort_enabled = true
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_1iwgg")
+trail_lifetime = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tohvd")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -10)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4r81j")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

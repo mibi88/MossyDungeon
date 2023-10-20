@@ -20,29 +20,30 @@ grow_vertical = 2
 size_flags_stretch_ratio = 0.65
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(0, 224)
+position = Vector2(-3, 702)
 texture_normal = ExtResource("1_j5hmj")
 action = "ui_left"
 visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(384, 224)
+position = Vector2(1022, 702)
 texture_normal = ExtResource("2_qgava")
 action = "ui_right"
 visibility_mode = 1
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(197, 224)
+position = Vector2(521, 576)
 texture_normal = ExtResource("3_pydew")
 action = "ui_accept"
 visibility_mode = 1
 
 [node name="FPS" type="Label" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_right = 160.0
-offset_bottom = 26.0
+offset_left = 187.0
+offset_right = 259.0
+offset_bottom = 48.0
 theme = SubResource("Theme_a48dr")
+theme_override_font_sizes/font_size = 32
 text = "FPS: "
 script = ExtResource("4_6mnfy")
 
@@ -54,6 +55,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
 text = "Deaths: "
 script = ExtResource("5_g36uu")
 
@@ -66,6 +68,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
 text = "Level: "
 horizontal_alignment = 1
 script = ExtResource("6_l1bfk")
@@ -74,19 +77,21 @@ script = ExtResource("6_l1bfk")
 layout_mode = 1
 offset_right = 96.0
 offset_bottom = 31.0
+theme_override_font_sizes/font_size = 32
 text = "Main menu"
 script = ExtResource("7_g8pon")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_top = 38.0
-offset_right = 640.0
-offset_bottom = 240.0
+offset_top = 76.0
+offset_right = 1280.0
+offset_bottom = 480.0
 
 [node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
 autowrap_mode = 3
 
 [connection signal="pressed" from="Main menu" to="Main menu" method="_on_pressed"]
