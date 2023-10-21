@@ -13,11 +13,9 @@ var wait = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hide()
 	wait = true
 	await get_tree().create_timer(randf_range(0, 5)).timeout
 	wait = false
-	show()
 	
 	velocity.y = -speed
 	org_y = position.y
@@ -33,12 +31,10 @@ func _physics_process(delta):
 			scale.x = -scale.x
 			print("switch")
 		if position.y >= org_y:
-			hide()
 			position.y = org_y
 			wait = true
 			await get_tree().create_timer(randf_range(0, 5)).timeout
 			wait = false
-			show()
 			velocity.y = -speed
 
 func _on_area_2d_body_entered(body):

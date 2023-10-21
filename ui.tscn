@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dudcsrmi1xm3o"]
+[gd_scene load_steps=10 format=3 uid="uid://dudcsrmi1xm3o"]
 
 [ext_resource type="Texture2D" uid="uid://cv521wdxyw4dj" path="res://assets/left.png" id="1_j5hmj"]
 [ext_resource type="Texture2D" uid="uid://c3a8j3mai2326" path="res://assets/right.png" id="2_qgava"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Deaths.gd" id="5_g36uu"]
 [ext_resource type="Script" path="res://Level_num.gd" id="6_l1bfk"]
 [ext_resource type="Script" path="res://Main_menu2.gd" id="7_g8pon"]
+[ext_resource type="Script" path="res://Time.gd" id="8_pi686"]
 
 [sub_resource type="Theme" id="Theme_a48dr"]
 
@@ -61,12 +62,12 @@ script = ExtResource("5_g36uu")
 
 [node name="Level_num" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_left = 0.758
+anchor_right = 0.758
+offset_left = -47.24
+offset_right = 48.76
+offset_bottom = 48.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Level: "
@@ -93,5 +94,18 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 3
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.434
+anchor_right = 0.434
+offset_left = -0.52002
+offset_right = 84.48
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Time:"
+script = ExtResource("8_pi686")
 
 [connection signal="pressed" from="Main menu" to="Main menu" method="_on_pressed"]

@@ -6,3 +6,9 @@ var checkpoints = []
 var level = 0
 
 var deaths = 0
+
+var start_time = 0
+
+var time = 0
+
+var time_str = "Time:"

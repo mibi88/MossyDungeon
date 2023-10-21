@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://br8eppf55ht7j"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://br8eppf55ht7j"]
 
 [ext_resource type="Texture2D" uid="uid://btgobs3tj0ki2" path="res://assets/tiles.png" id="1_akluj"]
 [ext_resource type="PackedScene" uid="uid://da4wlmihpu6d4" path="res://skeleton.tscn" id="2_j6ds3"]
+[ext_resource type="PackedScene" uid="uid://ddhgggu0rwjr4" path="res://raven.tscn" id="3_2qr8x"]
 [ext_resource type="PackedScene" uid="uid://c8dvwmenevjfi" path="res://sign.tscn" id="3_6r2i3"]
 [ext_resource type="PackedScene" uid="uid://r6kje1sxuu5e" path="res://fireball.tscn" id="4_70t56"]
 
@@ -59,6 +60,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_my6b7"]
 scenes/1/scene = ExtResource("2_j6ds3")
+scenes/2/scene = ExtResource("3_2qr8x")
 scenes/3/scene = ExtResource("3_6r2i3")
 scenes/4/scene = ExtResource("4_70t56")
 

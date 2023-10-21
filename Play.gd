@@ -20,3 +20,5 @@ func _on_pressed():
 	Ingame.deaths = 0
 	
 	get_tree().change_scene_to_file("res://main.tscn")
+	
+	Ingame.start_time = Time.get_ticks_msec()
